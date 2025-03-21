@@ -19,6 +19,8 @@ public class User {
     private Role role;
     @OneToMany(mappedBy = "user")
     private List<AuditLog> auditLogs;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Employee employee;
     @OneToMany(mappedBy = "user")
     private List<Task> tasks;
 }

@@ -9,16 +9,19 @@ import java.util.List;
 @Data
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String contactInfo;
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "user_id")
+    private User user;
+
     private String position;
     private Double salary;
     private String workSchedule;
     private Integer vacationDays;
     private Integer sickLeaveDays;
+
     @OneToMany(mappedBy = "employee")
     private List<Task> tasks;
-
 }

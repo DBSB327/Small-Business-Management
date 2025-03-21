@@ -1,7 +1,7 @@
 package com.pm.smallbusinessmanagement.controller;
 
-import com.pm.smallbusinessmanagement.model.Client;
-import com.pm.smallbusinessmanagement.service.ClientService;
+import com.pm.smallbusinessmanagement.model.Customer;
+import com.pm.smallbusinessmanagement.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,32 +12,32 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/clients")
 @RequiredArgsConstructor
-public class ClientController {
-    private final ClientService clientService;
+public class CustomerController {
+    private final CustomerService customerService;
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<Client>> getAllClients() {
-        return ResponseEntity.ok(clientService.getAllClients());
+    public ResponseEntity<List<Customer>> getAllClients() {
+        return ResponseEntity.ok(customerService.getAllCustomers());
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Optional<Client>> getClientById(@PathVariable Long id) {
-        return ResponseEntity.ok(clientService.getClientById(id));
+    public ResponseEntity<Optional<Customer>> getClientById(@PathVariable Long id) {
+        return ResponseEntity.ok(customerService.getCustomerById(id));
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Client> addClient(@RequestBody Client client) {
-        return ResponseEntity.ok(clientService.createClient(client));
+    public ResponseEntity<Customer> addClient(@RequestBody Customer customer) {
+        return ResponseEntity.ok(customerService.createCustomer(customer));
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client client) {
-        return ResponseEntity.ok(clientService.updateClient(id, client));
+    public ResponseEntity<Customer> updateClient(@PathVariable Long id, @RequestBody Customer customer) {
+        return ResponseEntity.ok(customerService.updateCustomer(id, customer));
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteClient(@PathVariable Long id) {
-        clientService.deleteClient(id);
+        customerService.deleteCustomer(id);
         return ResponseEntity.ok("Client deleted successfully");
     }
 }

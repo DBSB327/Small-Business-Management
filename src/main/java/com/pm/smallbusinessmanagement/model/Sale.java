@@ -13,8 +13,8 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;

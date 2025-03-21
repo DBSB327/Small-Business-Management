@@ -18,7 +18,7 @@ public class FinancialTransaction {
     private LocalDateTime transactionDate;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
 }

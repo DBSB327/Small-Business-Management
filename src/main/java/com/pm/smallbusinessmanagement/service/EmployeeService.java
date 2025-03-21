@@ -13,6 +13,8 @@ import java.util.Optional;
 public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
+    
+    //todo ...
 
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
@@ -29,8 +31,6 @@ public class EmployeeService {
     public Employee updateEmployee(Long id, Employee updatedEmployee) {
         return employeeRepository.findById(id)
                 .map(employee -> {
-                    employee.setName(updatedEmployee.getName());
-                    employee.setContactInfo(updatedEmployee.getContactInfo());
                     employee.setPosition(updatedEmployee.getPosition());
                     employee.setSalary(updatedEmployee.getSalary());
                     employee.setWorkSchedule(updatedEmployee.getWorkSchedule());

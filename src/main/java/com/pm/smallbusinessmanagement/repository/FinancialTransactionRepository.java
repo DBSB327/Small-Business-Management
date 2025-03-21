@@ -10,5 +10,5 @@ import java.util.List;
 public interface FinancialTransactionRepository extends JpaRepository<FinancialTransaction, Long> {
     List<FinancialTransaction> findByType(String type);
 
-    List<FinancialTransaction> findByClientId(Long clientId);
+    List<FinancialTransaction> findByCustomerId(Long id);
 }

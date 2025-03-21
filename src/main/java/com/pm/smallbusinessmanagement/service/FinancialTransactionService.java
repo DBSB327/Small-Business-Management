@@ -36,6 +36,6 @@ public class FinancialTransactionService {
     }
 
     public List<FinancialTransaction> getTransactionsByClient(Long clientId) {
-        return financialTransactionRepository.findByClientId(clientId);
+        return financialTransactionRepository.findByCustomerId(clientId);
     }
 }
